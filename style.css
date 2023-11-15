@@ -15,6 +15,8 @@ html, body {
     background-color: #0F0D0D;
 }
 
+
+/* Navbar start */
 #nav {
     height: 55px;
     width: 100%;
@@ -51,7 +53,9 @@ html, body {
     border-radius: 50%;
     background-color: #fff;
 }
+/* Navbar end */
 
+/* Hero section start */
 #hero-section {
     min-height: 100vh;
     width: 100%;
@@ -68,11 +72,70 @@ html, body {
 }
 
 #hero-section .header h1.title:last-of-type {
-    margin-left: 26vw;
+    margin-left: 25vw;
 }
 
 #hero-section .video-wrapper video {
     width: 60%;
-    margin-inline: 20%;
     margin-top: 10vw;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
 }
+/* Hero section end */
+
+/* Hero section start */
+#about-us-section {
+    min-height: 132vh;
+    width: 100%;
+    padding: 100px 5vw;
+    border-bottom: 2px solid #000;
+}
+
+#about-us-section h1.title {
+    font-size: 5vw;
+    font-weight: 300;
+    color: #111;
+    margin-bottom: 2vw;
+}
+
+#about-us-section .about-us-wrapper {
+    height: 60vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#about-us-section .about-us-wrapper .about-us-left {
+    width: 39%;
+}
+
+#about-us-section .about-us-wrapper .about-us-left h2 {
+    font-size: 3.6vw;
+    font-weight: 300;
+    text-transform: uppercase;
+    color: #111;
+    line-height: 1;
+}
+
+#about-us-section .about-us-wrapper .about-us-right {
+    width: 24%;
+}
+
+#about-us-section .about-us-wrapper .about-us-right p {
+    font-size: 23px;
+    color: #111;
+}
+
+#about-us-section .about-us-wrapper .about-us-right button {
+    width: 100%;
+    background-color: #EDBFFF;
+    border-radius: 50px;
+    border: none;
+    padding: 10px 0;
+    margin-top: 10px;
+    color: #000;
+    cursor: pointer;
+}
+/* Hero section start */
