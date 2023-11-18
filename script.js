@@ -38,6 +38,23 @@ function init() {
 
 init();
 
+const customCursor = document.getElementById("custom-cursor");
+const main = document.querySelector("#main");
+
+main.addEventListener("mousemove", (event) => {
+    customCursor.style.top = `${event.y}px`;
+    customCursor.style.left = `${event.x}px`;
+
+    if (event.target.tagName === "VIDEO") {
+        customCursor.textContent = "Sound ON";
+        customCursor.style.borderRadius = "50px";
+        customCursor.style.padding = "5px 10px";
+    } else {
+        customCursor.textContent = "";
+        customCursor.style.borderRadius = "50%";
+        customCursor.style.padding = "10px";
+    }
+});
 
 // Animations and transitions for hero section
 const timeline1 = gsap.timeline({
@@ -48,24 +65,35 @@ const timeline1 = gsap.timeline({
         start: "top 27%",
         end: "top 0",
         scrub: 3,
-    }
-})
+    },
+});
 
-timeline1.to("#hero-section h1:first-child", {
-    x: -100,
-    duration: 1,
-}, "anim")
+timeline1.to(
+    "#hero-section h1:first-child",
+    {
+        x: -100,
+        duration: 1,
+    },
+    "anim"
+);
 
-timeline1.to("#hero-section h1:last-child", {
-    x: 100,
-    duration: 1,
-}, "anim")
+timeline1.to(
+    "#hero-section h1:last-child",
+    {
+        x: 100,
+        duration: 1,
+    },
+    "anim"
+);
 
-timeline1.to("#hero-section video", {
-    width: "90%",
-    duration: 1, 
-}, "anim")
-
+timeline1.to(
+    "#hero-section video",
+    {
+        width: "90%",
+        duration: 1,
+    },
+    "anim"
+);
 
 // Animations and transitions for about-us section
 const timeline2 = gsap.timeline({
@@ -76,9 +104,9 @@ const timeline2 = gsap.timeline({
         start: "top -120%",
         end: "top 130%",
         scrub: 3,
-    }
-})
+    },
+});
 
 timeline2.to("#main", {
-    backgroundColor: "#fff"
-})
+    backgroundColor: "#fff",
+});
