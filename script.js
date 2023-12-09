@@ -75,7 +75,6 @@ const timeline1 = gsap.timeline({
     scrollTrigger: {
         trigger: "#hero-section h1",
         scroller: "#main",
-        markers: true,
         start: "top 27%",
         end: "top 0",
         scrub: 3,
@@ -114,7 +113,6 @@ const timeline2 = gsap.timeline({
     scrollTrigger: {
         trigger: "#hero-section h1",
         scroller: "#main",
-        markers: true,
         start: "top -120%",
         end: "top 130%",
         scrub: 3,
@@ -130,7 +128,6 @@ const timeline3 = gsap.timeline({
     scrollTrigger: {
         trigger: "#hero-section h1",
         scroller: "#main",
-        markers: true,
         start: "top -290%",
         end: "top 300%",
         scrub: 3,
