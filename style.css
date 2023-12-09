@@ -14,6 +14,7 @@ body {
 
 #main {
     background-color: #0f0d0d;
+    cursor: none;
 }
 
 /* Custom cursor start */
@@ -24,9 +25,11 @@ body {
     border-radius: 50%;
     position: fixed;
     background-color: #edbfff;
-    z-index: 1000;
+    z-index: 10;
     mix-blend-mode: difference;
-    transition: top linear 0.1s left linear 0.1s;
+    transition: top linear 0.1s left linear 0.1s background-image ease 0.5s;
+    background-position: center;
+    background-size: cover;
 }
 /* Custom cursor end */
 
@@ -38,6 +41,9 @@ body {
     align-items: center;
     justify-content: space-between;
     padding-inline: 30px;
+    position: fixed;
+    mix-blend-mode: difference;
+    z-index: 20;
 }
 
 #nav img.logo {
@@ -73,15 +79,18 @@ body {
 #hero-section {
     min-height: 100vh;
     width: 100%;
+    position: relative;
+    z-index: 11;
+    padding-top: 12vw;
 }
 
 #hero-section .header h1.title {
     font-size: 8vw;
     font-weight: 400;
+    transform-origin: left;
 }
 
 #hero-section .header h1.title:first-of-type {
-    margin-top: 12vw;
     margin-left: 6vw;
 }
 
@@ -104,6 +113,8 @@ body {
     width: 100%;
     padding: 150px 5vw;
     border-bottom: 2px solid #000;
+    position: relative;
+    z-index: 11;
 }
 
 #about-us-section h1.title {
@@ -156,10 +167,11 @@ body {
 
 /* Our work start */
 #our-work-section {
-    min-height: 150vh;
+    min-height: 100vh;
     width: 100%;
-    position: relative;
     padding-top: 100px;
+    position: relative;
+    z-index: 11;
 }
 
 #our-work-section h1 {
@@ -210,5 +222,110 @@ body {
     color: #111;
     font-size: 12px;
 }
-
 /* Our work end */
+
+/* Our services start */
+#our-services-section {
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    z-index: 11;
+    padding: 250px 100px;
+}
+
+#our-services-section .service {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+#our-services-section .service .text {
+    height: 8vw;
+    overflow: hidden;
+}
+
+#our-services-section .service .text h1 {
+    font-size: 7.3vw;
+    transition: all ease-out 0.5s;
+    position: relative;
+    z-index: 12;
+}
+
+#our-services-section .service img {
+    position: absolute;
+    width: 400px;
+    opacity: 0;
+    transition: all ease-out 0.5s;
+    transform: translateY(10%) rotate(2deg);
+}
+
+#our-services-section .service img:nth-child(1) {
+    left: 2%;
+}
+
+#our-services-section .service img:nth-child(3) {
+    right: 2%;
+}
+
+#our-services-section .service:hover h1 {
+    transform: translateY(-100%);
+    color: #edbfff;
+}
+
+#our-services-section .service:hover img {
+    opacity: 1;
+    transform: translateY(0) rotate(0);
+}
+/* Our services end */
+
+/* Our clients start */
+#our-clients-section {
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    z-index: 11;
+    padding: 150px 100px;
+}
+
+#our-clients-section h2 {
+    font-size: 6vw;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+}
+
+#our-clients-section .client-work {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+    padding-inline: 20px;
+    border-top: 1.5px solid #dadada;
+}
+
+#our-clients-section .client-work:last-child {
+    border-bottom: 1.5px solid #dadada;
+}
+
+#image-preview {
+    width: 470px;
+    height: 370px;
+    position: fixed;
+    z-index: 12;
+    transition: background-image ease 0.5s;
+    background-position: center;
+    background-size: cover;
+    opacity: 0;
+}
+/* Our clients end */
+
+/* Footer start */
+footer{
+    min-height: 30vh;
+    width: 100%;
+    background-color: #edbfff;
+    font-size: 1.5vw;
+    text-align: center;
+    padding: 15px;
+}
+/* Footer end */

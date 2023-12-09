@@ -1,3 +1,7 @@
+const main = document.querySelector("#main");
+const customCursor = document.getElementById("custom-cursor");
+const imagePreview = document.getElementById("image-preview");
+
 function init() {
     gsap.registerPlugin(ScrollTrigger);
 
@@ -36,27 +40,37 @@ function init() {
     ScrollTrigger.refresh();
 }
 
+function createCustomCursor() {
+    document.addEventListener("mousemove", (event) => {
+        customCursor.style.top = `${event.y}px`;
+        customCursor.style.left = `${event.x}px`;
+        imagePreview.style.top = `${event.y + 20}px`;
+        imagePreview.style.left = `${event.x + 20}px`;
+        
+        if (event.target.tagName === "VIDEO") {
+            customCursor.textContent = "Sound OFF";
+            customCursor.style.borderRadius = "50px";
+            customCursor.style.padding = "3px 8px";
+        } else {
+            customCursor.textContent = "";
+            customCursor.style.borderRadius = "50%";
+            customCursor.style.padding = "10px";
+        }
+    });
+}
+
 init();
-
-const customCursor = document.getElementById("custom-cursor");
-const main = document.querySelector("#main");
-
-main.addEventListener("mousemove", (event) => {
-    customCursor.style.top = `${event.y}px`;
-    customCursor.style.left = `${event.x}px`;
-
-    if (event.target.tagName === "VIDEO") {
-        customCursor.textContent = "Sound ON";
-        customCursor.style.borderRadius = "50px";
-        customCursor.style.padding = "5px 10px";
-    } else {
-        customCursor.textContent = "";
-        customCursor.style.borderRadius = "50%";
-        customCursor.style.padding = "10px";
-    }
-});
+createCustomCursor();
 
 // Animations and transitions for hero section
+gsap.from("#hero-section h1", {
+    y: 10,
+    rotate: 10,
+    opacity: 0,
+    delay: 0.3,
+    duration: 0.7
+})
+
 const timeline1 = gsap.timeline({
     scrollTrigger: {
         trigger: "#hero-section h1",
@@ -110,3 +124,35 @@ const timeline2 = gsap.timeline({
 timeline2.to("#main", {
     backgroundColor: "#fff",
 });
+
+// Animations and transitions for about-us section
+const timeline3 = gsap.timeline({
+    scrollTrigger: {
+        trigger: "#hero-section h1",
+        scroller: "#main",
+        markers: true,
+        start: "top -290%",
+        end: "top 300%",
+        scrub: 3,
+    },
+});
+
+timeline3.to("#main", {
+    backgroundColor: "#0f0d0d"
+});
+
+// Animations for our clients section
+const clientWorkEls = document.querySelectorAll(".client-work");
+
+clientWorkEls.forEach((el) => {
+    el.addEventListener("mouseenter", (event) => {
+        const dataImage = el.getAttribute("data-image");
+        imagePreview.style.backgroundImage = `url(${dataImage})`;
+        imagePreview.style.opacity = "1";
+    });
+
+    el.addEventListener("mouseleave", () => {
+        imagePreview.style.opacity = "0";
+        imagePreview.style.backgroundImage = `none`;
+    });
+})
